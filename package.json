@@ -1,6 +1,6 @@
 {
   "name": "nextjs-devtools",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "description": "Next.js devtools CLI",
   "repository": "https://github.com/hyi86/nextjs-devtools.git",
