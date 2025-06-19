@@ -1,5 +1,7 @@
 # nextjs-devtools
 
+![npm](https://img.shields.io/npm/v/nextjs-devtools)
+
 `next.js` 개발을 위한 `devtools CLI`
 
 ## Features
