@@ -24,7 +24,8 @@
     "postbuild": "chmod +x bin/*",
     "check-types": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "ci:publish": "pnpm publish"
   },
   "dependencies": {
     "chokidar": "^4.0.3",

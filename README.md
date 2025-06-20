@@ -11,7 +11,23 @@
 
 ## Usage
 
+프로덕션 빌드 전 실행
+
 ```bash
 pnpx nextjs-devtools
+```
+
+개발 모드 실행
+
+> 메모리 사용량이 늘어날 수 있습니다.
+
+```bash
 pnpx nextjs-devtools --watch
+```
+
+개발 모드 백그라운드에서 실행 (스크립트 추가)
+
+```bash
+pnpm pkg set scripts.predev="pnpx nextjs-devtools --watch"
+pnpm dev
 ```
