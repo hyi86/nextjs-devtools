@@ -8,10 +8,6 @@ on:
 env:
   CI: true
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   version:
     timeout-minutes: 15
@@ -35,7 +31,6 @@ jobs:
       - name: Create and publish versions
         uses: changesets/action@v1
         with:
-          createPullRequest: false
           commit: 'chore: update versions'
           title: 'chore: update versions'
           publish: pnpm ci:publish
