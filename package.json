@@ -3,12 +3,21 @@
   "version": "0.0.2",
   "private": false,
   "description": "Next.js devtools CLI",
-  "repository": "https://github.com/hyi86/nextjs-devtools.git",
+  "keywords": [
+    "next.js",
+    "react",
+    "cli",
+    "devtools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyi86/nextjs-devtools.git"
+  },
   "license": "MIT",
   "author": "Henry Hong <henry.hong@kakao.com>",
   "type": "module",
   "bin": {
-    "next-devtools": "./bin/index.js"
+    "next-devtools": "bin/index.js"
   },
   "scripts": {
     "build": "tsup",
