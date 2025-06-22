@@ -25,6 +25,7 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "dev": "tsx src/index.ts",
+    "prepare": "pnpm build",
     "ci:publish": "pnpm publish"
   },
   "dependencies": {
