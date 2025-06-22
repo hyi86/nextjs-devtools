@@ -17,7 +17,7 @@
   "author": "Henry Hong <henry.hong@kakao.com>",
   "type": "module",
   "bin": {
-    "next-devtools": "bin/index.js"
+    "nextjs-devtools": "bin/index.js"
   },
   "scripts": {
     "build": "tsup",
