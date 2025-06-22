@@ -1,5 +1,11 @@
 # nextjs-devtools
 
+## 0.0.7
+
+### Patch Changes
+
+- c824c10: fix: excution error
+
 ## 0.0.6
 
 ### Patch Changes
