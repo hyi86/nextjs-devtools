@@ -21,21 +21,22 @@ export async function generate(filePath: string) {
     const lang = path.basename(yamlFile).replace(/(\.yaml)$/, '');
     const file = fs.readFileSync(yamlFile, 'utf-8');
     const data = parse(file);
-    result[lang] = flattenObject(data);
+    // result[lang] = flattenObject(data);
+    result[lang] = data;
   }
 
   const content = JSON.stringify(result, null, 2);
   fs.writeFileSync(`${dirname}/dictionaries.json`, content, 'utf-8');
 }
 
-function flattenObject(obj: Record<string, any>, prefix = '', res: Record<string, any> = {}) {
-  for (const [key, value] of Object.entries(obj)) {
-    const newKey = prefix ? `${prefix}.${key}` : key;
-    if (value && typeof value === 'object' && !Array.isArray(value)) {
-      flattenObject(value, newKey, res);
-    } else {
-      res[newKey] = value;
-    }
-  }
-  return res;
-}
+// function flattenObject(obj: Record<string, any>, prefix = '', res: Record<string, any> = {}) {
+//   for (const [key, value] of Object.entries(obj)) {
+//     const newKey = prefix ? `${prefix}.${key}` : key;
+//     if (value && typeof value === 'object' && !Array.isArray(value)) {
+//       flattenObject(value, newKey, res);
+//     } else {
+//       res[newKey] = value;
+//     }
+//   }
+//   return res;
+// }
