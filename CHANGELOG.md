@@ -1,5 +1,11 @@
 # nextjs-devtools
 
+## 0.0.8
+
+### Patch Changes
+
+- 4889c78: update yaml flatten(remove)
+
 ## 0.0.7
 
 ### Patch Changes
