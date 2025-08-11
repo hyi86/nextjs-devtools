@@ -1,5 +1,11 @@
 # nextjs-devtools
 
+## 0.0.9
+
+### Patch Changes
+
+- d93c6fc: update i18n path & result
+
 ## 0.0.8
 
 ### Patch Changes
