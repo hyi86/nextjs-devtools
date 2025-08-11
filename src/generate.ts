@@ -8,7 +8,7 @@ export async function run(config: { watch: boolean; package: string }) {
     console.log('process', 'Start generating... (Run in Once)');
     await Promise.all([
       generateTypedRoutes('src/app-path-types.ts'), // add type-safe routes
-      generateTypedDictionaries('src/dictionaries'), // add type-safe dictionaries
+      generateTypedDictionaries('messages'), // add type-safe dictionaries
     ]);
     console.log('success', 'Generated all successfully');
     return;
@@ -26,7 +26,7 @@ export async function run(config: { watch: boolean; package: string }) {
   }).on('all', async (event, filePath) => {
     // 딕셔너리 생성
     if (event === 'change' && filePath.includes('src/dictionaries')) {
-      await generateTypedDictionaries('src/dictionaries');
+      await generateTypedDictionaries('messages');
     }
 
     if (event === 'change') {

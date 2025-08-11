@@ -31,3 +31,14 @@ pnpx nextjs-devtools --watch
 pnpm pkg set scripts.predev="pnpx nextjs-devtools --watch"
 pnpm dev
 ```
+
+### Local Testing
+
+```bash
+pnpm build
+# 적용될 경로에서 실행
+~/Workspace/nextjs-devtools/bin/index.js
+```
+
+
+

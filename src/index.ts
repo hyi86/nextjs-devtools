@@ -34,14 +34,14 @@ program
   .parse();
 
 // 타입 체크 정의
-const schema = z.object({
+const Schema = z.object({
   watch: z.boolean().default(false),
   package: z.string().optional(),
 });
 
 // 옵션 파싱
 try {
-  const options = schema.parse(program.opts());
+  const options = Schema.parse(program.opts());
   config.watch = options.watch;
   config.package = options.package ?? '';
 } catch (error) {

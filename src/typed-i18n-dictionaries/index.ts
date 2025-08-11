@@ -26,7 +26,7 @@ export async function generate(filePath: string) {
   }
 
   const content = JSON.stringify(result, null, 2);
-  fs.writeFileSync(`${dirname}/dictionaries.json`, content, 'utf-8');
+  fs.writeFileSync(`${dirname}/src/dictionaries.json`, content, 'utf-8');
 }
 
 // function flattenObject(obj: Record<string, any>, prefix = '', res: Record<string, any> = {}) {
