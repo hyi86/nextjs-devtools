@@ -33,6 +33,7 @@ export async function getRouteStructure(): Promise<
     structures: MergeTreeNode[];
   }[]
 > {
+  // next.js 파일 컨벤션
   const routes = FastGlob.sync('src/app/**/{page,layout,loading,not-found,error,template}.{ts,tsx,mdx}');
   const pagePathList = normalizePageRoutesBySegments(routes.filter((route) => route.match(/\/page\.(ts|tsx|mdx)$/)));
 

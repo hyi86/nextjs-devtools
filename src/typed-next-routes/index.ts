@@ -4,7 +4,7 @@ import { getRouteStructure } from './route-structure';
 
 /**
  * 라우트 파일 목록 생성
- * `src/lib/experimental/routes/app-path-routes.ts` 생성
+ * `src/lib/experimental/routes/app-path-types.ts` 생성
  * `src/lib/experimental/routes/types.ts` 파일 생성
  * (빌드 시, `.next/app-path-routes-manifest.json`에 파일이 생성됨)
  */
@@ -25,10 +25,6 @@ export async function generate(filePath: string) {
   export type StaticPath = ${staticPathString};
 
   export type TypedRoute = LiteralUnion<StaticPath, ${dynamicPathString}>;
-
-  export function getTypedPath(path: TypedRoute) {
-    return path;
-  }
 
   export type Structure = {
     path: string;

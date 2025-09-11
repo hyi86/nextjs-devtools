@@ -8,7 +8,7 @@ const deepCloneNode = (node: MergeTreeNode): MergeTreeNode => {
   };
 };
 
-// 머지 함수
+// Merge nodes
 export function mergeTreeNodes(trees: MergeTreeNode[][]): MergeTreeNode[] {
   const result: MergeTreeNode[] = [];
 
