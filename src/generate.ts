@@ -2,13 +2,16 @@ import { watch } from 'chokidar';
 import { generate as generateTypedDictionaries } from './typed-i18n-dictionaries';
 import { generate as generateTypedRoutes } from './typed-next-routes';
 
+const appRoutesPath = 'route-types.ts';
+const dictionariesPath = 'dictionaries.json';
+
 export async function run(config: { watch: boolean; package: string }) {
   // 프로덕션 모드로 실행 (1회 실행)
   if (!config.watch) {
     console.log('process', 'Start generating... (Run in Once)');
     await Promise.all([
-      generateTypedRoutes('src/app-path-types.ts'), // add type-safe routes
-      generateTypedDictionaries('messages'), // add type-safe dictionaries
+      generateTypedRoutes(appRoutesPath), // add type-safe routes
+      generateTypedDictionaries('messages', dictionariesPath), // add type-safe dictionaries
     ]);
     console.log('success', 'Generated all successfully');
     return;
@@ -26,7 +29,7 @@ export async function run(config: { watch: boolean; package: string }) {
   }).on('all', async (event, filePath) => {
     // 딕셔너리 생성
     if (event === 'change' && filePath.includes('src/dictionaries')) {
-      await generateTypedDictionaries('messages');
+      await generateTypedDictionaries('messages', dictionariesPath);
     }
 
     if (event === 'change') {
@@ -38,8 +41,9 @@ export async function run(config: { watch: boolean; package: string }) {
       filePath.includes('src/app') &&
       filePath.match(/\/(page|layout|loading|not-found|error|template)\.(ts|tsx|mdx)$/)
     ) {
-      await generateTypedRoutes('src/app-path-types.ts');
+      await generateTypedRoutes(appRoutesPath);
     }
   });
+
   console.log('success', 'Generated all successfully');
 }

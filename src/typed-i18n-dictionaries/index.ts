@@ -4,9 +4,7 @@ import path from 'node:path';
 import type { UnknownRecord } from 'type-fest';
 import { parse } from 'yaml';
 
-export async function generate(filePath: string) {
-  const dirname = path.dirname(filePath);
-
+export async function generate(filePath: string, outputPath: string) {
   try {
     fs.accessSync(filePath, fs.constants.F_OK); // 존재만 확인
   } catch {
@@ -26,7 +24,7 @@ export async function generate(filePath: string) {
   }
 
   const content = JSON.stringify(result, null, 2);
-  fs.writeFileSync(`${dirname}/src/dictionaries.json`, content, 'utf-8');
+  fs.writeFileSync(outputPath, content, 'utf-8');
 }
 
 // function flattenObject(obj: Record<string, any>, prefix = '', res: Record<string, any> = {}) {
