@@ -4,15 +4,16 @@ import path from 'node:path';
 import type { UnknownRecord } from 'type-fest';
 import { parse } from 'yaml';
 
-export async function generate(filePath: string, outputPath: string) {
+export async function generate(watchFilePath: string, outputPath: string) {
   try {
-    fs.accessSync(filePath, fs.constants.F_OK); // 존재만 확인
+    fs.accessSync(watchFilePath, fs.constants.F_OK); // 존재만 확인
   } catch {
+    console.log(` Skip generating: ${watchFilePath} is not found`);
     return;
   }
 
   const result: UnknownRecord = {};
-  const yamlFiles = await FastGlob(`${filePath}/**/*.yaml`);
+  const yamlFiles = await FastGlob(`${watchFilePath}/**/*.yaml`);
 
   for (const yamlFile of yamlFiles) {
     const lang = path.basename(yamlFile).replace(/(\.yaml)$/, '');
@@ -21,6 +22,6 @@ export async function generate(filePath: string, outputPath: string) {
     result[lang] = data;
   }
 
-  const content = JSON.stringify(result);
+  const content = JSON.stringify(result, null, 2);
   fs.writeFileSync(outputPath, content, 'utf-8');
 }

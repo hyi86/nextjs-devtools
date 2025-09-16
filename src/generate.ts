@@ -20,7 +20,7 @@ export async function run(config: { watch: boolean; package: string }) {
   // 파일 변경 감지 (chokidar)
   console.log('process', 'Start generating... (Watch Mode)');
 
-  watch(['src/app', 'src/dictionaries'], {
+  watch(['src/app', 'messages'], {
     persistent: true,
     ignoreInitial: false,
     awaitWriteFinish: true,
@@ -29,7 +29,7 @@ export async function run(config: { watch: boolean; package: string }) {
   }).on('all', async (event, filePath) => {
     // `messages/` 폴더 내, 파일 변경 시, 딕셔너리 JSON 생성
     if (event === 'change') {
-      if (filePath.includes('messages')) {
+      if (filePath.includes('messages/')) {
         await generateTypedDictionaries('messages', dictionariesPath);
       }
       return;
