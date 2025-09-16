@@ -1,5 +1,11 @@
 # nextjs-devtools
 
+## 0.0.13
+
+### Patch Changes
+
+- 0d4d803: fix: i18n dictionary folder detect failed issue
+
 ## 0.0.12
 
 ### Patch Changes
