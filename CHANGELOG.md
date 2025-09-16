@@ -1,5 +1,11 @@
 # nextjs-devtools
 
+## 0.0.11
+
+### Patch Changes
+
+- be0df85: update file names
+
 ## 0.0.9
 
 ### Patch Changes
