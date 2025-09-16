@@ -49,6 +49,7 @@ type SimpleTreeNode = SpecialFile & {
   children: SimpleTreeNode[];
 };
 
+// 정렬된 트리 구조 생성
 export function buildSimpleSortedTree(items: SpecialFile[]): SimpleTreeNode[] {
   // sort 순서로 정렬
   const sortedItems = [...items].sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0));

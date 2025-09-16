@@ -1,0 +1,5 @@
+---
+"nextjs-devtools": patch
+---
+
+refactoring

@@ -33,7 +33,7 @@ export async function getRouteStructure(): Promise<
     structures: MergeTreeNode[];
   }[]
 > {
-  // next.js 파일 컨벤션
+  // next.js 파일 컨벤션 조회
   const routes = FastGlob.sync('src/app/**/{page,layout,loading,not-found,error,template}.{ts,tsx,mdx}');
   const pagePathList = normalizePageRoutesBySegments(routes.filter((route) => route.match(/\/page\.(ts|tsx|mdx)$/)));
 
@@ -61,7 +61,7 @@ export async function getRouteStructure(): Promise<
     }
   }
 
-  // 라우트 구조 생성
+  // 라우트 구조 생성 (Tree)
   const updatedRouteStructures = routeStructures.map((routeStructure) => {
     const specialFiles = routeStructure.files.map((file) => {
       const specialFiles: SpecialFile[] = [];
@@ -133,7 +133,7 @@ function normalizePageRoutesBySegments(allPageRoutes: string[]): PageRoute[] {
   const sanitizedFiles = allPageRoutes.map((routePath) => {
     const segments = routePath.split('/').slice(2); // src/app 을 제외한 경로 배열
 
-    // Private route 는 무시
+    // Private route 는 라우트에 포함되지 않으므로 무시
     // e.g. src/app/example/route/_private/page.tsx
     const hasPrivateRoute = segments.some((segment) => segment.startsWith('_'));
     if (hasPrivateRoute) {

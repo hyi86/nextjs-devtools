@@ -8,7 +8,6 @@ export async function generate(filePath: string, outputPath: string) {
   try {
     fs.accessSync(filePath, fs.constants.F_OK); // 존재만 확인
   } catch {
-    console.log('error', 'dictionaries.json 파일이 존재하지 않습니다');
     return;
   }
 
@@ -19,22 +18,9 @@ export async function generate(filePath: string, outputPath: string) {
     const lang = path.basename(yamlFile).replace(/(\.yaml)$/, '');
     const file = fs.readFileSync(yamlFile, 'utf-8');
     const data = parse(file);
-    // result[lang] = flattenObject(data);
     result[lang] = data;
   }
 
-  const content = JSON.stringify(result, null, 2);
+  const content = JSON.stringify(result);
   fs.writeFileSync(outputPath, content, 'utf-8');
 }
-
-// function flattenObject(obj: Record<string, any>, prefix = '', res: Record<string, any> = {}) {
-//   for (const [key, value] of Object.entries(obj)) {
-//     const newKey = prefix ? `${prefix}.${key}` : key;
-//     if (value && typeof value === 'object' && !Array.isArray(value)) {
-//       flattenObject(value, newKey, res);
-//     } else {
-//       res[newKey] = value;
-//     }
-//   }
-//   return res;
-// }
