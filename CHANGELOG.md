@@ -1,5 +1,11 @@
 # nextjs-devtools
 
+## 0.0.12
+
+### Patch Changes
+
+- 7450e8f: refactoring
+
 ## 0.0.11
 
 ### Patch Changes
